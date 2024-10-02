@@ -13,7 +13,7 @@ def dead_root():
     return {"Введите в строке /shaurma-adress   или /shaurma-names"}
 
 
-class billiard_place(BaseModel):
+class BilliardPlace(BaseModel):
     name: str
     count_table: str
     price: int
@@ -27,13 +27,13 @@ def out_items():
     return items
 
 
-@app.get("/items/{item_id}", response_model=billiard_place)
+@app.get("/items/{item_id}", response_model=BilliardPlace)
 async def read_item(item_id: str):
     return items[item_id]
 
 
-@app.put("/items/{item_id}", response_model=billiard_place)
-async def update_item(item_id: str, item: billiard_place):
+@app.put("/items/{item_id}", response_model=BilliardPlace)
+async def update_item(item_id: str, item: BilliardPlace):
     update_item_encoded = jsonable_encoder(item)
     items[item_id] = update_item_encoded
     return update_item_encoded
