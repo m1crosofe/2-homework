@@ -13,7 +13,7 @@ def dead_root():
 
 class BilliardPlace(BaseModel):
     name: str
-    count_table: int  # Изменено на int, так как количество столов не может быть строкой
+    count_table: str
     price: int
 
 
